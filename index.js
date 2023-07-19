@@ -7,6 +7,16 @@ const log = require("./lib/trace");
 //require("dotenv").config();
 
 
+
+
+/// middleware
+const corsOptions = {
+  origin: "http://localhost:3000" // frontend URI (ReactJS)
+}
+
+app.use(cors(corsOptions));
+
+
 const dotenv = require( 'dotenv').config();
 const PORT = process.env.PORT;
 require('./conexion/conexion.tsx');
@@ -20,8 +30,6 @@ app.use(express.urlencoded({ extended: true }));
 
 
 
-
-const port = process.env.PORT || 3000;
 
 main().catch((err) => console.log(err));
   
